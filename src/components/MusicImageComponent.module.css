@@ -1,0 +1,97 @@
+* {
+    
+    flex-direction: column;
+}
+
+h1 {
+    background-color:black;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 30px;
+    font-family: monospace;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    background-color:black;
+    font-size: 100%;
+    font-family: monospace;
+    color: white;
+    text-align: center;
+}
+
+.div {
+    width: 15rem;
+    height: 7rem;
+    background-color:black;
+    border-radius: 1rem;   
+    display: inline-flex; 
+    flex-direction: row;
+}
+
+.div > left{
+    margin: 2px;
+}
+
+
+
+.image {
+    background-color:lightskyblue;
+    width: 10rem;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    width: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    background-color: bisque;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.btns {    
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+
+.left {
+    border-radius: 1rem;
+    width: 200px;
+    align-items: center;
+    vertical-align: center;
+    padding-top: 30px;
+    margin-top: 10px;
+    background-color: black;
+
+}
+
+.left > div {
+    margin: 10px;
+}
+
+.frequency {
+    color: white;
+    background-color: black;
+}
+
+.right {
+    border-radius: 1rem;
+    width: 50px;
+    font-size: 30px;
+    margin-top: 40px;
+    color:white;
+    background-color: black;
+    height: auto;    
+}

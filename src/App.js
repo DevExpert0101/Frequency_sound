@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Navigate, useNavigate} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+
+
+import Main from './pages/Main';
+import Frequency from './pages/Frequency';
+
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div>
+    //   <h1 className="header">Image Gallery</h1>
+    //   <div className="image">
+    //     <div><ImageComponent imgname={pic1} /></div>
+    //     <div><ImageComponent imgname={pic2} /></div>
+    //     <div><ImageComponent imgname={pic3} /></div>        
+    //   </div>
+
+    //   <div className="image">
+    //     <div><ImageComponent imgname={pic4} /></div>
+    //     <div><ImageComponent imgname={pic1} /></div>        
+    //   </div>
+
+    //   <div className='vimage'>
+    //     <div><ImageComponent imgname={speedmark} /></div>
+        
+    //   </div>
+
+    //   <div className='container'>
+    //     <button className='btn_run' onClick={routeChange}>Start Tuning</button>
+    //   </div>
+
+    // </div>
+
+    <Router>
+    <Routes>
+      <Route exact path="/" element={<Main />} />
+      <Route path="/freq" element={<Frequency />} />
+    </Routes>
+  </Router>
   );
 }
 

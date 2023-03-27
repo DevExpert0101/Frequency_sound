@@ -1,0 +1,35 @@
+.header {
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: chartreuse;
+}
+
+.image {
+    display: block;
+    border: 1rem;
+    border-radius: 1rem;
+    border-color: brown;
+    margin-left: auto;
+    margin-right: auto;
+
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
+.imageWrapper {
+    position: relative;
+}
+
+
+
+.image:hover {
+    transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+}
