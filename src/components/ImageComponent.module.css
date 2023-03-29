@@ -5,12 +5,8 @@
 }
 
 .image {
-    display: block;
-    border: 1rem;
     border-radius: 1rem;
     border-color: brown;
-    margin-left: auto;
-    margin-right: auto;
 
     transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -19,9 +15,8 @@
     -webkit-transition: all 0.5s ease;
 }
 
-.imageWrapper {
-    position: relative;
-}
+
+
 
 
 

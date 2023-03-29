@@ -60,3 +60,21 @@
     flex-direction: row;
     background-color: black;
 }
+
+.label {
+    background-color: black;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    background-color: black;
+}
+
+.label > input {
+    width: 100px;
+    color: white;
+}

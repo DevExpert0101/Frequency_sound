@@ -1,8 +1,9 @@
 
-import pic1 from '../images/1 (1).jpg';
-import pic2 from '../images/1 (2).jpg';
-import pic3 from '../images/1 (3).jpg';
-import pic4 from '../images/1 (4).jpg';
+import pic1 from '../images/1 (1).png';
+import pic2 from '../images/1 (2).png';
+import pic3 from '../images/1 (3).png';
+import pic4 from '../images/1 (4).png';
+import pic5 from '../images/1 (5).png';
 import speedmark from '../images/speedometer.jpg';
 import ImageComponent from '../components/ImageComponent';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,9 @@ function Main() {
 
     return (
         <div>
-      {/* <h1 className="header">Image Gallery</h1> */}
+      <h1 className="header">Tuning Calculator</h1> 
+      <h2> Online Indian Classical Music Tuner</h2>
+      <h3> Tune your Sitar, Tabla, Venna, Sarod or Tanpura</h3>
       <div className="image">
         <div><ImageComponent imgname={pic1} /></div>
         <div><ImageComponent imgname={pic2} /></div>
@@ -23,10 +26,10 @@ function Main() {
 
       <div className="image">
         <div><ImageComponent imgname={pic4} /></div>
-        <div><ImageComponent imgname={pic1} /></div>        
+        <div><ImageComponent imgname={pic5} /></div>        
       </div>
 
-      <div className='vimage'>
+      <div className='speedmarkimage'>
         <div><ImageComponent imgname={speedmark} /></div>
         
       </div>
