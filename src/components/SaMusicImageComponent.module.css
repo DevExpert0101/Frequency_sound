@@ -1,10 +1,10 @@
 * {
-    
+
     flex-direction: column;
 }
 
 .h1 {
-    background-color:black;
+    background-color: black;
     margin-top: 100px;
     margin-bottom: 0;
     font-size: 50px;
@@ -14,7 +14,7 @@
 }
 
 .h2 {
-    background-color:black;
+    background-color: black;
     font-size: 100%;
     font-family: monospace;
     color: white;
@@ -24,7 +24,7 @@
 .div {
     width: 15rem;
     height: 25rem;
-    background-color:black;
+    background-color: black;
     border-radius: 1rem;
     display: flex;
 }
@@ -32,7 +32,7 @@
 
 
 .image {
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     width: 10rem;
     margin-top: auto;
     margin-left: auto;
@@ -47,10 +47,10 @@
     background-color: bisque;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
 
-.btns {    
+.btns {
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -74,7 +74,7 @@ label {
     background-color: black;
 }
 
-.label > input {
+.label>input {
     width: 100px;
     color: white;
 }

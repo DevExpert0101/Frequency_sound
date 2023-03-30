@@ -14,31 +14,34 @@ function Main() {
     const routeChange = () => navigate('/freq');
 
     return (
-        <div>
-      <h1 className="header">Tuning Calculator</h1> 
-      <h2> Online Indian Classical Music Tuner</h2>
-      <h3> Tune your Sitar, Tabla, Venna, Sarod or Tanpura</h3>
-      <div className="image">
-        <div><ImageComponent imgname={pic1} /></div>
-        <div><ImageComponent imgname={pic2} /></div>
-        <div><ImageComponent imgname={pic3} /></div>        
-      </div>
+      <div>
+        <hr className='title_top_line'></hr>
+          <h1 className="page_title">Tuning Calculator</h1> 
+        <hr className='title_bottom_line'></hr>
 
-      <div className="image">
-        <div><ImageComponent imgname={pic4} /></div>
-        <div><ImageComponent imgname={pic5} /></div>        
-      </div>
-
-      <div className='speedmarkimage'>
-        <div><ImageComponent imgname={speedmark} /></div>
+          <h2 className='main_title'> Online Indian Classical Music Tuner</h2>
         
-      </div>
+          <h3> Tune your Sitar, Tabla, Venna, Sarod or Tanpura</h3>
+          <div className="image">
+            <div><ImageComponent imgname={pic1} /></div>
+            <div><ImageComponent imgname={pic2} /></div>
+            <div><ImageComponent imgname={pic3} /></div>        
+          </div>
 
-      <div className='container'>
-        <button className='btn_run' onClick={routeChange}>Start Tuning!</button>
-      </div>
+          <div className="image">
+            <div><ImageComponent imgname={pic4} /></div>
+            <div><ImageComponent imgname={pic5} /></div>        
+          </div>
 
-    </div>
+          <div className='speedmarkimage'>
+            <div><ImageComponent imgname={speedmark} /></div>
+            
+          </div>
+
+          <div className='container'>
+            <button className='btn_run' onClick={routeChange}>Start Tuning!</button>
+          </div>
+      </div>
     );
 };
 

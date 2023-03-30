@@ -16,7 +16,7 @@ function MusicImageComponent(props) {
     const [gain, setGain] = useState(100);
     // const [frequency, setFrequency] = useState(props.freq);    
     const [oscillator, setOscillator] = useState(oscillatorValues[0]);
-    
+
     const { start, stop } = useFrequency({
         hz: props.freq,
         type,
@@ -26,9 +26,9 @@ function MusicImageComponent(props) {
 
     return (
         <div className={classes.div}>
-           
+
             <div className={classes.left}>
-                {/* <div className={classes.frequency}>Frequency:{props.freq}</div> */}
+
                 <div className={classes.btns}>
                     <button className={classes.btn} onClick={start}> Start </button>
                     <button className={classes.btn} onClick={stop}> Stop </button>

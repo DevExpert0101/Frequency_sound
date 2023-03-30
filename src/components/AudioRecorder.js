@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import ReactDOM from 'react-dom'
+
 
 const mimeType = "audio/webm";
 
-const AudioRecorder = () => {
+const AudioRecorder = (props) => {
     const [permission, setPermission] = useState(false);
     const mediaRecorder = useRef(null);
     const [recordingStatus, setRecordingStatus] = useState("inactive");
@@ -43,113 +43,44 @@ const AudioRecorder = () => {
 
 
     const audioRef = useRef(null);
-
-    // useEffect(() => {
-    //     // if(!audio)return;
-    //     console.log(start)
-    //     const audioContext = new (window.AudioContext || window.webktAudioContext)();
-    //     console.log("1")
-    //     if(!audioRef.current) return;
-    //     console.log(2)
-    //     const audioElement = audioRef.current;
-    //     console.log(3)
-
-    //     const analyser = audioContext.createAnalyser(); 
-    //     console.log(4)
-        
-    //     const audioSource = audioContext.createMediaElementSource(audioElement);
     
-    //     console.log(5)
-       
-
-    //     audioSource.connect(analyser);
-    //     analyser.connect(audioContext.destination);
-
-    //     const bufferLength = analyser.frequencyBinCount;
-    //     const dataArray = new Uint8Array(bufferLength);
-
-    //     function update() {
-    //         if(audioElement.paused) 
-    //         {console.log("dis");audioSource.disconnect(); audioContext.close(); analyser.disconnect(); return;}
-    //         requestAnimationFrame(update);
-    //         analyser.getByteFrequencyData(dataArray);
-    //         const frequency = getFrequency(dataArray);
-    //         console.log(frequency);
-    //     }
-
-
-    //     function getFrequency(dataArray) {
-    //         const peak = Math.max(...dataArray);
-    //         const index = dataArray.indexOf(peak);
-    //         const frequency = index * audioContext.sampleRate / bufferLength;
-    //         return frequency;
-    //     };
-
-    //     audioElement.play();
-    //     update();
+    useEffect(() => {
         
-        
-    //     return () => {
-    //         audioContext.close();
-    //         console.log("disconnect...");
-    //         audioSource.disconnect();
-    //         analyser.disconnect();
-    //     };
-
-        
-    // }, [start]);
-    const [audioSource, setAudioSource] = useState(null);
-    function calcul (){
-        const audioContext = new (window.AudioContext || window.webktAudioContext)();
-        
-        if(!audioRef.current) return;
-        
-        const audioElement = audioRef.current;
-        
-        const analyser = audioContext.createAnalyser();         
-        
-        const audioSource = audioContext.createMediaElementSource(audioElement);
-
-        audioSource.connect(analyser);
-        analyser.connect(audioContext.destination);
-
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        function update() {
-            if(audioElement.paused) 
-            {return;}
-            requestAnimationFrame(update);
-            analyser.getByteFrequencyData(dataArray);
-            const frequency = getFrequency(dataArray);
-            console.log(frequency);
-        }
-
-
-        function getFrequency(dataArray) {
-            const peak = Math.max(...dataArray);
-            const index = dataArray.indexOf(peak);
-            const frequency = index * audioContext.sampleRate / bufferLength;
-            return frequency;
-        };
-
-        audioElement.play();
-        update();
-
-        return () => {
-            analyser.disconnect();
-            audioContext.close();
-            console.log("disconnect...");
-            audioSource.disconnect();
+        const audiocontext = new AudioContext();
+        const analysernode = audiocontext.createAnalyser();
+        analysernode.fftSize = 2048;
+        navigator.mediaDevices.getUserMedia({audio: true, video: false})
+            .then((stream) => {
+                const source = audiocontext.createMediaStreamSource(stream);
+                source.connect(analysernode);
             
-        };
-    }
 
+            const frequencyData = new Uint8Array(analysernode.frequencyBinCount);
 
-    const getMicrophonePermission = async () => {
+            function updateFrequency() {
+                analysernode.getByteFrequencyData(frequencyData);
+                const index = frequencyData.indexOf(Math.max(...frequencyData));
+                const frequency = index * audiocontext.sampleRate / analysernode.fftSize;
+                // console.log('frequency: ', frequency);
+                props.onStartExperiment(frequency);
+                // document.getElementById("sa").value = frequency;
+                requestAnimationFrame(updateFrequency);
+            }
+
+            updateFrequency();
+        })
+        .catch((err) => {
+            console.error('error getting user media.', err);
+        })
+    }, []);
+
+    
+    
+
+    const getMicrophonePermission =  () => {
         if ("MediaRecorder" in window) {
             try {
-                const streamData = await navigator.mediaDevices.getUserMedia({
+                const streamData =  navigator.mediaDevices.getUserMedia({
                     audio: true,
                     video: false,
                 });
@@ -164,32 +95,22 @@ const AudioRecorder = () => {
         }
     };
 
+    
+
     return (
         <div>
             <h2> Audio Recorder </h2>
             <main>
+            <div className="label">
+                <label  >Frequency:</label>
+                <input id='sa' type="text" value={props.measured?props.measured:"Please start measurement"} onChange={props.setMeasureInput}/>
+            </div>
                 <div className="audio-controls">
-                    {!permission ? (
+                    {/* {!permission ? (
                         <button className="btn" onClick={getMicrophonePermission} type="button">
                             Get Microphone
                         </button>
-                    ) : null}
-                    {permission && recordingStatus === "inactive" ? (
-                        <button className="btn" type="button" onClick={startRecording}>
-                            Record
-                        </button>
-                    ) : null}
-                    {recordingStatus === "recording" ? (
-                        <button className="btn" type="button" onClick={stopRecording}>
-                            Stop
-                        </button>
-                    ) : null}
-                    {audio ? (
-                        <div>
-                            <audio src={audio} ref={audioRef} controls="controls" />
-                            <button className="btn" type="button" onClick={calcul}>Cal</button>
-                        </div>
-                    ) : null}
+                    ) : null}                     */}
                 </div>
             </main>
         </div>
