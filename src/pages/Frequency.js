@@ -7,9 +7,6 @@ import { useEffect, useState } from "react";
 function Frequency() {
     const [freq, setFreq] = useState(277.0);
     const [measured, setMeasured] = useState(277);
-    const [inputvalue, setInputValue] = useState("277");
-
-    
 
     const onStartExperiment = (e) => {
         const _freq = (e.target && e.target.value) ? e.target.value : e;
@@ -17,8 +14,7 @@ function Frequency() {
         // console.log('Frea is -- ', freq);
     }
     const onSetMeasured = (e) => {        
-        const _measured = (e.target && e.target.value) ? e.target.value : 277;
-        
+        const _measured = (e.target && e.target.value) ? e.target.value : e;
         // if(parseFloat(_measured).toString() == _measured) return;
         // if(typeof _measured == "string") return;
         setMeasured(_measured);
