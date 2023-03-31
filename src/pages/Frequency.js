@@ -14,7 +14,7 @@ function Frequency() {
         // console.log('Frea is -- ', freq);
     }
     const onSetMeasured = (e) => {        
-        const _measured = (e.target && e.target.value) ? e.target.value : e;
+        const _measured = (e.target && e.target.value) ? e.target.value : 277;
         // if(parseFloat(_measured).toString() == _measured) return;
         // if(typeof _measured == "string") return;
         setMeasured(_measured);
