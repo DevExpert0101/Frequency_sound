@@ -20,11 +20,10 @@ function SaMusicImageComponent(props) {
     const [frequency, setFrequency] = useState(277);
     const [oscillator, setOscillator] = useState(oscillatorValues[0]);
     const [started, setStarted] = useState(false)
-    
 
 
     const { start, stop } = useFrequency({
-        hz: isFinite(props.measured) ? props.measured : 277,
+        hz: isFinite(props.measured) ? props.measured > 0 ? props.measured : 277 : 277,
         type,
         gain,
         oscillator
@@ -48,10 +47,7 @@ function SaMusicImageComponent(props) {
 
     const OnsetMeasureInput = (e) => {
         // console.log(e.target.value)
-        let _v = 0;
-        if(parseInt(e.target.value)) _v = 277;
-        else _v = e.target.value;
-        props.onSetMeasured(_v);
+        props.onSetMeasured(e.target.value);
     }
     return (
         <div className={classes.div}>

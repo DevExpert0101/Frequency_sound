@@ -15,6 +15,8 @@ function Frequency() {
     }
     const onSetMeasured = (e) => {        
         const _measured = (e.target && e.target.value) ? e.target.value : e;
+        // if(parseFloat(_measured).toString() == _measured) return;
+        // if(typeof _measured == "string") return;
         setMeasured(_measured);
     }
     const octav_array = [1.066, 1.125, 1.2, 1.25, 1.333, 1.4, 1.5, 1.6, 1.667, 1.777, 1.875, 2];
