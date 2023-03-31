@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 function Frequency() {
     const [freq, setFreq] = useState(277.0);
-    const [measured, setMeasured] = useState(-1);
+    const [measured, setMeasured] = useState(277);
 
     const onStartExperiment = (e) => {
         const _freq = (e.target && e.target.value) ? e.target.value : e;

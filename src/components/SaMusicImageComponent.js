@@ -48,7 +48,10 @@ function SaMusicImageComponent(props) {
 
     const OnsetMeasureInput = (e) => {
         // console.log(e.target.value)
-        props.onSetMeasured(e.target.value);
+        let _v = 0;
+        if(parseInt(e.target.value)) _v = 277;
+        else _v = e.target.value;
+        props.onSetMeasured(_v);
     }
     return (
         <div className={classes.div}>
