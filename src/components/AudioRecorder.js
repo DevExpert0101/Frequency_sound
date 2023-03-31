@@ -103,7 +103,7 @@ const AudioRecorder = (props) => {
             <main>
             <div className="label">
                 <label  >Frequency:</label>
-                <input id='sa' type="text" value={props.measured?props.measured:"277"} onChange={props.setMeasureInput}/>
+                <input id='sa' type="text" value={props.measured?props.measured:""} onChange={props.setMeasureInput}/>
             </div>
                 <div className="audio-controls">
                 </div>
